@@ -1,27 +1,16 @@
-# Lập trình tại lớp 180 phút: ứng dụng Micro Blog
+﻿# Lập trình tại lớp 180 phút: ứng dụng Micro Blog
 
-## Yêu cầu
+## Các kiến thức sử dụng
+- Thiết kế blog cơ bản với mô hình MVC
+- Sử dụng cookie để xác định user
+- Render trang html bằng Thymeleaf
+- Thao tác với cơ sở dữ liệu H2
+- Quan hệ giữa các bảng: một-một, một-nhiều
 
-**Bắt buộc**
-1. Lập trình ngay tại lớp trong 180 phút, không mang về nhà
-2. Sử dụng đúng cấu trúc dự án mẫu
-3. Đúng và đủ chức năng Login, CRUD Post, Create - Delete Comment
-4. Demo cho giảng viên cuối giờ để được chấm điểm
-
-**Không bắt buộc**
-1. Nếu thời gian có hạn, bỏ qua việc viết Unit Test
-2. Không cần viết Service component nếu thấy không cần thiết
-3. Không cần chức năng Create new account, Change Password...
-4. Không cần trang trí CSS. Giảng viên mù tịt boot strap. Ok !
-
-## Mockup giao diện
-![](images/login.jpg)
-
-![](images/home.jpg)
-
-![](images/new_post.jpg)
-
-![](images/post_detail.jpg)
+## Các chức năng khi thao tác
+- Login, logout user (danh sách user có sẵn)
+- CRUD với post
+- Create, delete comment
 
 ## Quan hệ giữa các bảng
 - One user writes many posts
