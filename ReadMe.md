@@ -1,4 +1,4 @@
-﻿# Lập trình tại lớp 180 phút: ứng dụng Micro Blog
+﻿# Lập trình ứng dụng Micro Blog
 
 ## Các kiến thức sử dụng
 - Thiết kế blog cơ bản với mô hình MVC
