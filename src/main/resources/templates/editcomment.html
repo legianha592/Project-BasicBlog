@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comment</title>
+</head>
+<body>
+    <h1>Create Comment</h1>
+    <form th:action="@{/comment}" method="post" th:object="${comment}">
+        <input type="hidden" name="post_id" th:value="${param.id}">
+        <br>
+        <br>
+        <textarea th:field="*{content}" th:text="*{content}"></textarea>
+        <br>
+        <br>
+        <input type="submit" value="Create">
+    </form>
+</body>
+</html>

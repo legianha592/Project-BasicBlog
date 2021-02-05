@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a th:href="@{/post/edit}">Add</a>
+  <h1>All Posts</h1>
+  <table border="2" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Post author</th>
+        <th>Post time</th>
+        <th>Comment</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="post: ${posts}">
+        <td th:text="${post.id}"></td>
+        <td th:text="${post.title}"></td>
+        <td th:text="${post.content}"></td>
+        <td th:text="${post.author.fullname}"></td>
+        <td th:text="${#temporals.format(post.lastUpdate, 'dd-MM-yyyy HH:mm')}"></td>
+        <td>
+
+          <a th:href="@{/comment(id = ${post.id})}">Add comment</a><br>
+          <table border="2" cellpadding="5">
+            <thead>
+              <tr>
+                <td>Comment</td>
+                <td>User</td>
+                <td>Time comment</td>
+                <td>Action</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="item : ${post.comments}">
+                <td th:text="${item.content}"></td>
+                <td th:text="${item.commenter.fullname}"></td>
+                <td th:text="${#temporals.format(item.lastUpdate, 'dd-MM-yyyy HH:mm')}"></td>
+                <td>
+                  <a th:if="${post.author.id == user.id || item.commenter.id == user.id}"
+                     th:href="@{/delete(id = ${item.id})}">Delete comment</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </td>
+        <td>
+          <a th:if="${post.author.id == user.id}" th:href="@{/post/edit(id = ${post.id})}">Edit post</a><br><br>
+          <a th:if="${post.author.id == user.id}" th:href="@{/post/delete(id = ${post.id})}">Delete post</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="/logout">Logout</a>
+</body>
+</html>
